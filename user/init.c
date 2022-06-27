@@ -13,7 +13,7 @@ char *argv[] = {"sh", 0};
 
 int main(void)
 {
-  int pid, wpid;
+  int pid, wpid, loggedIn;
 
   if (open("console", O_RDWR) < 0)
   {
@@ -25,17 +25,51 @@ int main(void)
 
   for (;;)
   {
-    printf("init: starting sh\n");
+    write(1, "init: starting sh\n", 18);
     pid = fork();
     if (pid < 0)
     {
-      printf("init: fork failed\n");
+      write(1, "init: fork failed\n", 18);
       exit(1);
     }
     if (pid == 0)
     {
-      exec("sh", argv);
-      printf("init: exec sh failed\n");
+			int count = 0;
+
+			while (count < 5) {
+				write(1, "Username: ", 10);
+				char *user = (char *)malloc(32);
+				read(1, user, 30);
+				switch(user[strlen(user) - 1]) {
+					case '\n': case '\r':
+						user[strlen(user) - 1] = 0;
+				}
+
+				write(1, "Password: ", 11);
+				char *pass = (char *)malloc(32);
+				read(1, pass, 30);
+				switch(pass[strlen(pass) - 1]) {
+					case '\n': case '\r':
+						pass[strlen(pass) - 1] = 0;
+				}
+
+				loggedIn = isValidUser(user, pass);
+				if(loggedIn == 0) {
+					//opens shell for the user
+					write(1, "Welcome back ", 13);
+					write(1, user, strlen(user));
+					write(1, "!\n", 2);
+					char *tmp;
+					exec("sh", &tmp);
+					write(1, "init: exec login failed\n", 24);
+					exit(0);
+				} else {
+					write(1, "User and password do not match, or user does not exist! Try again!\n", 67);
+					count++;
+				}
+			}
+			write(1, "Login Failed\n", 1);
+			while(1);
       exit(1);
     }
 
