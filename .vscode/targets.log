@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sat Jun 25 10:16:18 2022
+# Make data base, printed on Mon Jun 27 15:07:50 2022
 
 # Variables
 
@@ -20,7 +20,6 @@ QEMUGDB = $(shell if $(QEMU) -help | grep -q '^-gdb'; then echo "-gdb tcp::$(GDB
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
- 
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # makefile (from `Makefile', line 51)
@@ -51,6 +50,7 @@ PROMPT_EOL_MARK =
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
+ 
 # makefile (from `Makefile', line 68)
 CFLAGS = -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 && echo -fno-stack-protector) -fno-pie -no-pie
 # makefile (from `Makefile', line 151)
@@ -70,7 +70,9 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 ENHANCD_HOME_ARG = 
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/vr/740qr2ms3dg437bmv7k9y8580000gn/T/vscode-ipc-742623c9-135b-47af-a1b5-28b8ddbc6f75.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/vr/740qr2ms3dg437bmv7k9y8580000gn/T/vscode-ipc-52b22253-2b7a-4a34-b4f8-d5c200e7c935.sock
+# environment
+MallocSpaceEfficient = 1
 # environment
 VSCODE_CWD = /Users/poteitoo/Documents/projects/riscv-login
 # environment
@@ -83,6 +85,8 @@ ENHANCD_USE_FUZZY_MATCH = 1
 ENHANCD_DISABLE_HYPHEN = 0
 # makefile (from `Makefile', line 157)
 CPUS := 3
+# environment
+LaunchInstanceID = B0BC5D41-218E-49EF-99BD-40244C284033
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -104,7 +108,7 @@ _ENHANCD_VERSION = 2.2.4
 # environment
 ENHANCD_FILTER = fzy:fzf-tmux:fzf:peco:percol:gof:pick:icepick:sentaku:selecta
 # environment
-TMUX_PANE = %0
+TMUX_PANE = %3
 # environment
 VSCODE_PIPE_LOGGING = true
 # makefile (from `Makefile', line 4)
@@ -160,7 +164,7 @@ USER = poteitoo
 # default
 MAKECMDGOALS := all
 # environment
-TERM_SESSION_ID = D40F752F-F296-40B1-8AAE-F12B37077F15
+TERM_SESSION_ID = DE333A38-B540-443C-B9AB-19ADF2385B56
 # environment
 KAGGLE_USERNAME = whitebot
 # automatic
@@ -192,11 +196,11 @@ TERM_PROGRAM_VERSION = 3.2a
 # environment
 NVM_DIR = /Users/poteitoo/.nvm
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.40726309.40726315.8DABEE86-CC61-40DC-AFB8-FAE52FF9EFFB
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.40726309.40726315.D860A0E9-8A8F-4F09-9264-CF1355AA51A9
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-TMUX = /private/tmp/tmux-501/default,28854,0
+TMUX = /private/tmp/tmux-501/default,15157,0
 # makefile (from `Makefile', line 57)
 OBJDUMP = $(TOOLPREFIX)objdump
 # automatic
@@ -229,6 +233,7 @@ VIRTUAL_ENV_DISABLE_PROMPT = 12
 OBJCOPY = $(TOOLPREFIX)objcopy
 # environment
 ENHANCD_HYPHEN_NUM = 10
+ 
 # default
 SUFFIXES := 
 # makefile (from `Makefile', line 118)
@@ -244,11 +249,11 @@ LANG = C
 # environment
 TERM = screen-256color
 # environment
-VSCODE_PID = 65031
+VSCODE_PID = 66588
 # environment
 ENHANCD_ROOT = /Users/poteitoo/.local/share/zinit/plugins/b4b4r07---enhancd
 # variable set hash-table stats:
-# Load=116/1024=11%, Rehash=0, Collisions=18/357=5%
+# Load=118/1024=12%, Rehash=0, Collisions=18/359=5%
 
 # Pattern-specific Variable Values
 
@@ -256,15 +261,14 @@ ENHANCD_ROOT = /Users/poteitoo/.local/share/zinit/plugins/b4b4r07---enhancd
 
 # Directories
 
-# user (device 16777220, inode 41150751): 124 files, no impossibilities.
+# user (device 16777220, inode 41150751): 123 files, no impossibilities.
 # kernel (device 16777220, inode 41150702): 101 files, no impossibilities.
-# . (device 16777220, inode 41150630): 16 files, no impossibilities.
+# . (device 16777220, inode 41150630): 17 files, no impossibilities.
 
 # 241 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
- 
 _%: %.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
 #  commands to execute (from `Makefile', line 93):
 	$(LD) $(LDFLAGS) -N -e main -Ttext 0 -o $@ $^
@@ -443,6 +447,7 @@ kernel/sleeplock.o: kernel/sleeplock.c kernel/types.h kernel/riscv.h kernel/defs
 kernel/plic.o: kernel/plic.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/riscv.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 user/init.o: user/init.c kernel/types.h kernel/stat.h kernel/spinlock.h kernel/sleeplock.h kernel/fs.h kernel/file.h user/user.h kernel/fcntl.h
@@ -536,7 +541,6 @@ user/stressfs.c:
 #  Modification time never checked.
 #  File has not been updated.
 
- 
 # Not a target:
 user/kill.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
@@ -659,6 +663,7 @@ Makefile:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
+ 
 kernel/riscv.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -794,7 +799,6 @@ mkfs/mkfs.c:
 kernel/virtio_disk.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-06-20 17:46:45
 #  File has been updated.
 #  Successfully updated.
@@ -811,7 +815,7 @@ user/cat.c:
 user/repass.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-06-24 20:51:33
+#  Last modified 2022-06-25 11:22:16
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -866,6 +870,7 @@ kernel/bio.o: kernel/bio.c kernel/types.h kernel/param.h kernel/spinlock.h kerne
 #  File has not been updated.
 
 # Not a target:
+ 
 user/sh.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -991,7 +996,6 @@ user/wc.d:
 kernel/syscall.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 kernel/exec.o: kernel/exec.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/riscv.h kernel/spinlock.h kernel/proc.h kernel/defs.h kernel/elf.h
@@ -1031,6 +1035,7 @@ user/ls.d:
 #  Last modified 2022-06-20 17:46:46
 #  File has been updated.
 #  Successfully updated.
+ 
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -1148,7 +1153,6 @@ user/grep.d:
 #  Last modified 2022-06-20 17:46:46
 #  File has been updated.
 #  Successfully updated.
- 
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -1172,6 +1176,7 @@ clean:
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 143):
 	rm -f *.tex *.dvi *.idx *.aux *.log *.ind *.ilg \
+ 
 	*/*.o */*.d */*.asm */*.sym \
 	$U/initcode $U/initcode.out $K/kernel fs.img \
 	mkfs/mkfs .gdbinit \
@@ -1314,6 +1319,7 @@ user/cat.d:
 #  Implicit rule search has been done.
 #  Last modified 2022-06-20 17:46:46
 #  File has been updated.
+ 
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
@@ -1331,7 +1337,6 @@ user/mkdir.d:
 # Not a target:
 user/_wc:
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -1497,6 +1502,7 @@ kernel/syscall.d:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
+ 
 user/rm.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
@@ -1516,7 +1522,6 @@ user/initcode: user/initcode.S
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 #  commands to execute (from `Makefile', line 82):
 	$(CC) $(CFLAGS) -march=rv64g -nostdinc -I. -Ikernel -c $U/initcode.S -o $U/initcode.o
 	$(LD) $(LDFLAGS) -N -e start -Ttext 0 -o $U/initcode.out $U/initcode.o
@@ -1638,6 +1643,7 @@ kernel/string.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 # files hash-table stats:
 # Load=196/1024=19%, Rehash=0, Collisions=121/657=18%
 # VPATH Search Paths
@@ -1651,6 +1657,6 @@ kernel/string.c:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 3455 / max = 3455 / min = 3455 / avg = 3455
 
-# Finished Make data base on Sat Jun 25 10:16:18 2022
+# Finished Make data base on Mon Jun 27 15:07:50 2022
 
  
